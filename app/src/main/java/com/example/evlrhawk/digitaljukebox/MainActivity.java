@@ -7,6 +7,8 @@ public class MainActivity extends AppCompatActivity {
 
 //    what up dog?
     // Que bueno!
+    // Not much, what's up with you?
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
