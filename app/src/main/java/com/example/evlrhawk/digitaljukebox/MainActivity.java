@@ -18,6 +18,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Set;
 
+
+
+
+
+
 public class MainActivity extends Activity {
     Button host, join;
     private BluetoothAdapter BA;
@@ -71,6 +76,11 @@ public class MainActivity extends Activity {
     @Override
     protected  void onDestroy() {
         super.onDestroy();
+        // Ends the discovery for bluetooth devices
+        if (BA.isDiscovering()) {
+            BA.cancelDiscovery();
+        }
+
         BA.disable();
         Toast.makeText(getApplicationContext(), "Turned off" ,Toast.LENGTH_LONG).show();
 
