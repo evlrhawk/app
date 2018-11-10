@@ -47,8 +47,8 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected  void onStop() {
-        super.onStop();
+    protected  void onDestroy() {
+        super.onDestroy();
         BA.disable();
         Toast.makeText(getApplicationContext(), "Turned off" ,Toast.LENGTH_LONG).show();
 
