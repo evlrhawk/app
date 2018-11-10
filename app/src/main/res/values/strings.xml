@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DigitalJukeBox</string>
+    <string name="host">Host</string>
+    <string name="join">Join</string>
 </resources>
