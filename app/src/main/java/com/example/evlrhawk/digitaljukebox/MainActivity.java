@@ -94,6 +94,7 @@ public class MainActivity extends Activity {
 
 
     public void list(View v){
+        BA.startDiscovery();
 //        pairedDevices = BA.getBondedDevices();
 
 //        ArrayList list = new ArrayList();
