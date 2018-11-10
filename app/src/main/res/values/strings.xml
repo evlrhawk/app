@@ -2,4 +2,7 @@
     <string name="app_name">DigitalJukeBox</string>
     <string name="host">Host</string>
     <string name="join">Join</string>
+    <string name="on_off">ON/OFF</string>
+    <string name="enable_discoverable">Enable Discoverable</string>
+    <string name="discover">Discover</string>
 </resources>
