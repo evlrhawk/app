@@ -15,6 +15,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Set;
 
+
+
+
+
+
 public class MainActivity extends Activity {
     Button host, join;
     private BluetoothAdapter BA;
