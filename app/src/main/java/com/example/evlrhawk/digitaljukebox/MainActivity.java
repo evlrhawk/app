@@ -3,7 +3,10 @@ package com.example.evlrhawk.digitaljukebox;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +23,8 @@ public class MainActivity extends Activity {
     private BluetoothAdapter BA;
     private Set<BluetoothDevice> pairedDevices;
     ListView lv;
+    ArrayAdapter adapter = null;
+    ArrayList list = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +48,25 @@ public class MainActivity extends Activity {
         } else {
             Toast.makeText(getApplicationContext(), "Already on", Toast.LENGTH_LONG).show();
         }
+        // Register for broadcasts when a device is discovered.
+        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+        registerReceiver(mReceiver, filter);
 
     }
+
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+                // Discovery has found a device. Get the BluetoothDevice
+                // object and its info from the Intent.
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                list.add(device);
+//                String deviceName = device.getName();
+//                String deviceHardwareAddress = device.getAddress(); // MAC address
+            }
+        }
+    };
 
     @Override
     protected  void onDestroy() {
@@ -62,12 +84,12 @@ public class MainActivity extends Activity {
 
 
     public void list(View v){
-        pairedDevices = BA.getBondedDevices();
+//        pairedDevices = BA.getBondedDevices();
 
-        ArrayList list = new ArrayList();
+//        ArrayList list = new ArrayList();
 
-        for(BluetoothDevice bt : pairedDevices) list.add(bt.getName());
-        Toast.makeText(getApplicationContext(), "Showing Paired Devices",Toast.LENGTH_SHORT).show();
+//        for(BluetoothDevice bt : pairedDevices) list.add(bt.getName());
+//        Toast.makeText(getApplicationContext(), "Showing Paired Devices",Toast.LENGTH_SHORT).show();
 
         final ArrayAdapter adapter = new  ArrayAdapter(this,android.R.layout.simple_list_item_1, list);
 
