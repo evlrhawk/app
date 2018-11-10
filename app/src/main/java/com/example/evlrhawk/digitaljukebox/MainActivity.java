@@ -87,7 +87,7 @@ public class MainActivity extends Activity {
     }
 
 
-    public  void visible(View v){
+    public void visible(View v){
         Intent getVisible = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
         startActivityForResult(getVisible, 0);
     }
