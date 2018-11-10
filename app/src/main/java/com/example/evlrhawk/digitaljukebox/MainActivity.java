@@ -118,8 +118,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -292,11 +294,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnDiscover(View view) {
-        Log.d(TAG, "btnDiscover: Looking for unpaired devices.");
+        Toast.makeText(this, "Looking for unpaired devices.", Toast.LENGTH_SHORT).show();
 
         if(mBluetoothAdapter.isDiscovering()){
             mBluetoothAdapter.cancelDiscovery();
-            Log.d(TAG, "btnDiscover: Canceling discovery.");
+            Toast.makeText(this, "Canceling discovery.", Toast.LENGTH_SHORT).show();
 
             //check BT permissions in manifest
             checkBTPermissions();
@@ -304,6 +306,8 @@ public class MainActivity extends AppCompatActivity {
             mBluetoothAdapter.startDiscovery();
             IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
             registerReceiver(mBroadcastReceiver3, discoverDevicesIntent);
+            final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mBTDevices);
+            lvNewDevices.setAdapter(adapter);
         }
         if(!mBluetoothAdapter.isDiscovering()){
 
@@ -313,7 +317,11 @@ public class MainActivity extends AppCompatActivity {
             mBluetoothAdapter.startDiscovery();
             IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
             registerReceiver(mBroadcastReceiver3, discoverDevicesIntent);
+            final ArrayAdapter adapter = new  ArrayAdapter(this,android.R.layout.simple_list_item_1, mBTDevices);
+            lvNewDevices.setAdapter(adapter);
         }
+
+
     }
 
     /**
