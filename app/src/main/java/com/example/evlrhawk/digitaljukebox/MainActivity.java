@@ -289,12 +289,6 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter intentFilter = new IntentFilter(mBluetoothAdapter.ACTION_SCAN_MODE_CHANGED);
         registerReceiver(mBroadcastReceiver2,intentFilter);
 
-<<<<<<< HEAD
-    public void visible(View v){
-        Intent getVisible = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-        startActivityForResult(getVisible, 0);
-=======
->>>>>>> 395d151eed692d70646f62b84a62e9be62d2fb14
     }
 
     public void btnDiscover(View view) {
