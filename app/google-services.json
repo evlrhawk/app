@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "808443147339",
+    "firebase_url": "https://digitial-jukebox.firebaseio.com",
+    "project_id": "digitial-jukebox",
+    "storage_bucket": "digitial-jukebox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808443147339:android:23a0c7a9d5438057",
+        "android_client_info": {
+          "package_name": "com.example.evlrhawk.digitaljukebox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808443147339-4g9fgn7avvmei8oa24q3rok067k28gli.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.evlrhawk.digitaljukebox",
+            "certificate_hash": "1a8513dbccaaac28f87632240f4c2a82aca2682a"
+          }
+        },
+        {
+          "client_id": "808443147339-ua2m1rd37sh4hcp5ahljho44dqof791m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl5hw7sxGCUVzeRCVKyTf9NcVe0-wyF_s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808443147339-ua2m1rd37sh4hcp5ahljho44dqof791m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
