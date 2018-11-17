@@ -304,6 +304,7 @@ public class MainActivity extends AppCompatActivity {
             checkBTPermissions();
 
             mBluetoothAdapter.startDiscovery();
+            Toast.makeText(this, "Starting again.", Toast.LENGTH_SHORT).show();
             IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
             registerReceiver(mBroadcastReceiver3, discoverDevicesIntent);
             final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mBTDevices);
