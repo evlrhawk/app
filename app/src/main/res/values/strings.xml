@@ -7,4 +7,7 @@
     <string name="discover">Discover</string>
     <string name="name" />
     <string name="send" />
+    <string name="send_it">Send it</string>
+    <string name="pull">Pull</string>
+    <string name="string_to_send">String to send</string>
 </resources>

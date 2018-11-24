@@ -2,6 +2,7 @@ package com.example.evlrhawk.digitaljukebox;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -10,8 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("string");
 
         // string taken from text entry in app
-        string = (EditText)findViewById(R.id.sendString);
+        string = (EditText) findViewById(R.id.sendString);
         // our button
-        send = (Button)findViewById(R.id.button);
+        send = (Button) findViewById(R.id.button);
 
         // to call our addString button on click
         send.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void addString() {
         final String TAG = "From addString()";
@@ -71,6 +76,19 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Please type a string to send.", Toast.LENGTH_LONG);
         }
 
+        // Attach a listener to read the data at our posts reference
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                pull _pull = dataSnapshot.getValue(pull.class);
+                System.out.println(_pull);
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
+
 }
