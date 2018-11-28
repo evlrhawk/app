@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
 
     <EditText
@@ -13,6 +14,8 @@
         android:layout_marginTop="48dp"
         android:layout_marginBottom="8dp"
         android:hint="String to send"
+        android:maxLines="1"
+        android:textColor="@android:color/background_light"
         android:textColorHint="@color/colorBlack"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,7 +30,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
         android:layout_marginBottom="328dp"
+        android:background="@color/colorPrimary"
         android:text="Send it"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
