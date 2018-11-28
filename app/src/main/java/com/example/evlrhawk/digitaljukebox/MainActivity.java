@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Adds a string to our firebase database
+     * Written by Christopher Wilson
+     */
     public void addString() {
         final String TAG = "From addString()";
 
