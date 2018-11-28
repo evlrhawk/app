@@ -50,9 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
 
-        //new activity to login
-        //Intent login = new Intent(MainActivity.this, LogIn.class);
-        //this.startActivity(login);
+
 
         // get the database reference
 
