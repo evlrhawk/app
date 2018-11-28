@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("string");
 
         // string taken from text entry in app
-        string = (EditText)findViewById(R.id.sendString);
+        string = (EditText) findViewById(R.id.sendString);
         // our button
-        send = (Button)findViewById(R.id.button);
+        send = (Button) findViewById(R.id.button);
 
         // to call our addString button on click
         send.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Adds a string to our firebase database
+     * Written by Christopher Wilson
+     */
     public void addString() {
         final String TAG = "From addString()";
 
