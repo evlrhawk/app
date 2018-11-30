@@ -19,9 +19,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.spotify.sdk.android.authentication.AuthenticationClient;
+import com.spotify.sdk.android.authentication.AuthenticationRequest;
+import com.spotify.sdk.android.authentication.AuthenticationResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.spotify.sdk.android.authentication.LoginActivity.REQUEST_CODE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,13 +45,21 @@ public class MainActivity extends AppCompatActivity {
         btnPull = (Button) findViewById(R.id.button2);
         listView = findViewById(R.id.list_view);
 
+        AuthenticationRequest.Builder builder =
+                new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
+
+        builder.setScopes(new String[]{"streaming"});
+        AuthenticationRequest request = builder.build();
+
+        AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
+
         // get the database reference
         databaseReference = FirebaseDatabase.getInstance().getReference("track");
         sendList = new ArrayList<>();
         // string taken from text entry in app
-        string = (EditText)findViewById(R.id.sendString);
+        string = (EditText) findViewById(R.id.sendString);
         // our button
-        send = (Button)findViewById(R.id.button);
+        send = (Button) findViewById(R.id.button);
 
         // to call our addString button on click
         send.setOnClickListener(new View.OnClickListener() {
@@ -83,14 +96,18 @@ public class MainActivity extends AppCompatActivity {
                 listView.setAdapter(toSendAdapter);
             }
 
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e(TAG,"13");
             }
         });
     }
+
+    /**
+     * Adds a string to our firebase database
+     * Written by Christopher Wilson
+     */
+
     public void addString() {
         final String TAG = "From addString()";
 
