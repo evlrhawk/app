@@ -26,6 +26,8 @@ import com.spotify.sdk.android.authentication.AuthenticationResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.spotify.sdk.android.authentication.AuthenticationRequest.QueryParams.CLIENT_ID;
+import static com.spotify.sdk.android.authentication.AuthenticationRequest.QueryParams.REDIRECT_URI;
 import static com.spotify.sdk.android.authentication.LoginActivity.REQUEST_CODE;
 
 public class MainActivity extends AppCompatActivity {
