@@ -19,6 +19,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.spotify.android.appremote.api.ConnectionParams;
+import com.spotify.android.appremote.api.Connector;
+import com.spotify.android.appremote.api.SpotifyAppRemote;
+import com.spotify.protocol.client.Subscription;
+import com.spotify.protocol.types.PlayerState;
+import com.spotify.protocol.types.Track;
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
 import com.spotify.sdk.android.authentication.AuthenticationResponse;
@@ -26,12 +32,14 @@ import com.spotify.sdk.android.authentication.AuthenticationResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.spotify.sdk.android.authentication.AuthenticationRequest.QueryParams.CLIENT_ID;
-import static com.spotify.sdk.android.authentication.AuthenticationRequest.QueryParams.REDIRECT_URI;
-import static com.spotify.sdk.android.authentication.LoginActivity.REQUEST_CODE;
+
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String CLIENT_ID = "27ead52d8b6d426a85b5a01cd63b388c";
+    private static final int REQUEST_CODE = 1337;
+    private static final String REDIRECT_URI = "com.example.evlrhawk.digitaljukebox://callback";
+    private SpotifyAppRemote mSpotifyAppRemote;
     private static final String TAG = "Failed Here";
     private EditText string;
     private Button send, btnPull;
