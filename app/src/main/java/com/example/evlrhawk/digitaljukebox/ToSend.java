@@ -14,4 +14,6 @@ public class ToSend {
     public ToSend(String toSend){
         this.toSend = toSend;
     }
+
+    public ToSend(){ toSend = ""; }
 }

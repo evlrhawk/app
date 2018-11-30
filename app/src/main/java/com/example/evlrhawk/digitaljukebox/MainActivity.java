@@ -1,6 +1,7 @@
 package com.example.evlrhawk.digitaljukebox;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,10 +20,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "Failed Here";
     private EditText string;
-    private Button send;
+    private Button send, btnPull;
+    private ListView listView;
+    List<ToSend> sendList;
 
     DatabaseReference databaseReference;
 
@@ -28,14 +37,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btnPull = (Button) findViewById(R.id.button2);
+        listView = findViewById(R.id.list_view);
 
         // get the database reference
-        databaseReference = FirebaseDatabase.getInstance().getReference("string");
-
+        databaseReference = FirebaseDatabase.getInstance().getReference("track");
+        sendList = new ArrayList<>();
         // string taken from text entry in app
-        string = (EditText) findViewById(R.id.sendString);
+        string = (EditText)findViewById(R.id.sendString);
         // our button
-        send = (Button) findViewById(R.id.button);
+        send = (Button)findViewById(R.id.button);
 
         // to call our addString button on click
         send.setOnClickListener(new View.OnClickListener() {
@@ -44,9 +55,42 @@ public class MainActivity extends AppCompatActivity {
                 addString();
             }
         });
+//        // Attach a listener to read the data at our posts reference
+
+        btnPull.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showData();
+            }
+        });
     }
+    public void showData(){
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot trackSnapshot : dataSnapshot.getChildren()) {
+                    ToSend toSend = new ToSend();
+                    if (toSend == null){
+                        toSend.setToSend("1");
+                        toSend = trackSnapshot.getValue(ToSend.class);
+                    }
+                    else {
+                        toSend = trackSnapshot.getValue(ToSend.class);
+                    }
+                    sendList.add(toSend);
+                }
+                ToSendAdapter toSendAdapter = new ToSendAdapter(MainActivity.this, sendList);
+                listView.setAdapter(toSendAdapter);
+            }
 
 
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e(TAG,"13");
+            }
+        });
+    }
     public void addString() {
         final String TAG = "From addString()";
 
@@ -76,19 +120,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Please type a string to send.", Toast.LENGTH_LONG);
         }
 
-        // Attach a listener to read the data at our posts reference
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                pull _pull = dataSnapshot.getValue(pull.class);
-                System.out.println(_pull);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
     }
-
 }
+
