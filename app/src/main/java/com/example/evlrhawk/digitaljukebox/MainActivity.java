@@ -91,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ToSendAdapter toSendAdapter;
+                sendList.clear();
+                toSendAdapter = new ToSendAdapter(MainActivity.this, sendList);
+                listView.setAdapter(toSendAdapter);
                 for(DataSnapshot trackSnapshot : dataSnapshot.getChildren()) {
                     ToSend toSend = new ToSend();
                     if (toSend == null){
@@ -102,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     sendList.add(toSend);
                 }
-                ToSendAdapter toSendAdapter = new ToSendAdapter(MainActivity.this, sendList);
+                toSendAdapter = new ToSendAdapter(MainActivity.this, sendList);
                 listView.setAdapter(toSendAdapter);
             }
 
