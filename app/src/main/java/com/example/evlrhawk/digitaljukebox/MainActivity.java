@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private Button send, btnPull;
     private ListView listView;
     List<ToSend> sendList;
+    List<String> keyList;
 
     DatabaseReference databaseReference;
 
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         // get the database reference
         databaseReference = FirebaseDatabase.getInstance().getReference("track");
         sendList = new ArrayList<>();
+        keyList = new ArrayList<>();
         // string taken from text entry in app
         string = (EditText) findViewById(R.id.sendString);
         // our button
@@ -99,14 +101,17 @@ public class MainActivity extends AppCompatActivity {
                 sendList.clear();
                 toSendAdapter = new ToSendAdapter(MainActivity.this, sendList);
                 listView.setAdapter(toSendAdapter);
+                keyList.clear();
                 for(DataSnapshot trackSnapshot : dataSnapshot.getChildren()) {
                     ToSend toSend = new ToSend();
                     if (toSend == null){
                         toSend.setToSend("1");
                         toSend = trackSnapshot.getValue(ToSend.class);
+                        keyList.add(trackSnapshot.getKey());
                     }
                     else {
                         toSend = trackSnapshot.getValue(ToSend.class);
+                        keyList.add(trackSnapshot.getKey());
                     }
                     sendList.add(toSend);
                 }
@@ -116,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e(TAG,"13");
+                Log.e(TAG,"You done messed up Aaron!");
             }
         });
     }
