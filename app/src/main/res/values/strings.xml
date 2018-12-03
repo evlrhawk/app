@@ -11,4 +11,6 @@
     <string name="pull">Pull</string>
     <string name="string_to_send">String to send</string>
     <string name="track">Track</string>
+    <string name="guest">Guest</string>
+    <string name="isHost">Host</string>
 </resources>

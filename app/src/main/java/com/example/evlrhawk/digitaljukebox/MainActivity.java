@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnPull = (Button) findViewById(R.id.button2);
+        btnPull = (Button) findViewById(R.id.guestBtn);
         listView = findViewById(R.id.list_view);
 
         AuthenticationRequest.Builder builder =
@@ -69,7 +68,12 @@ public class MainActivity extends AppCompatActivity {
         // string taken from text entry in app
         string = (EditText) findViewById(R.id.sendString);
         // our button
-        send = (Button) findViewById(R.id.button);
+        send = (Button) findViewById(R.id.hostBtn);
+
+        final int verify = 666;
+        Intent intent = new Intent(this, HostVsGuest.class);
+
+        startActivityForResult(intent, verify);
 
         // to call our addString button on click
         send.setOnClickListener(new View.OnClickListener() {
@@ -219,4 +223,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-
