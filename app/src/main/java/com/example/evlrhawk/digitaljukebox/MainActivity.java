@@ -72,10 +72,7 @@ public class MainActivity extends AppCompatActivity {
         // our button
         send = (Button) findViewById(R.id.hostBtn);
 
-        final int verify = 666;
-        Intent intent = new Intent(this, HostVsGuest.class);
 
-        startActivityForResult(intent, verify);
 
         // to call our addString button on click
         send.setOnClickListener(new View.OnClickListener() {
