@@ -16,17 +16,17 @@ public class HostVsClassDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(dialog_Host_Vs_Guest)
-                .setPositiveButton(Guest, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        MainActivity.setHost(true);
-                    }
-                })
-                .setNegativeButton(Host, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        MainActivity.setHost(false);
-                    }
-                });
+        builder.setMessage(dialog_Host_Vs_Guest);
+        builder.setPositiveButton(Guest, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                MainActivity.setHost(true);
+            }
+        });
+        builder.setNegativeButton(Host, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                MainActivity.setHost(false);
+            }
+        });
         // Create the AlertDialog object and return it
         return builder.create();
     }

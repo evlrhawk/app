@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     List<ToSend> sendList;
     List<String> keyList;
-    private boolean host;
+    private boolean isHost;
 
     public static void setHost(boolean host) {
-        this.host = host;
+        this.isHost = host;
     }
     DatabaseReference databaseReference;
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         // our button
         send = (Button) findViewById(R.id.hostBtn);
 
-
+        HostVsClassDialogFragment = new HostVsClassDialogFragment();
 
         // to call our addString button on click
         send.setOnClickListener(new View.OnClickListener() {
