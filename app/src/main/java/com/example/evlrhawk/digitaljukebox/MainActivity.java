@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private Object HostVsClassDialogFragment;
 
     public void setHost(boolean host) { this.isHost = host; }
+
     DatabaseReference databaseReference;
 
     @Override
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         // our button
         send = (Button) findViewById(R.id.hostBtn);
 
-        HostVsClassDialogFragment = new HostVsClassDialogFragment();
+        HostVsGuestDialogFragment HvG = new HostVsGuestDialogFragment();
 
         // to call our addString button on click
         send.setOnClickListener(new View.OnClickListener() {
