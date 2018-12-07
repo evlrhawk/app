@@ -19,12 +19,12 @@ public class HostVsClassDialogFragment extends DialogFragment {
         builder.setMessage(dialog_Host_Vs_Guest);
         builder.setPositiveButton(Guest, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                MainActivity.setHost(true);
+                ((MainActivity) getActivity()).setHost(true);
             }
         });
         builder.setNegativeButton(Host, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                MainActivity.setHost(false);
+                ((MainActivity) getActivity()).setHost(false);
             }
         });
         // Create the AlertDialog object and return it
