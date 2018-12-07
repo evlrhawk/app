@@ -19,12 +19,12 @@ public class HostVsClassDialogFragment extends DialogFragment {
         builder.setMessage(dialog_Host_Vs_Guest)
                 .setPositiveButton(Guest, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // FIRE ZE MISSILES!
+                        MainActivity.setHost(true);
                     }
                 })
                 .setNegativeButton(Host, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
+                        MainActivity.setHost(false);
                     }
                 });
         // Create the AlertDialog object and return it

@@ -45,7 +45,11 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     List<ToSend> sendList;
     List<String> keyList;
+    private boolean host;
 
+    public static void setHost(boolean host) {
+        this.host = host;
+    }
     DatabaseReference databaseReference;
 
     @Override
