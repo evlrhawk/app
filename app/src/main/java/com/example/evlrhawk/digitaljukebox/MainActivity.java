@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -46,14 +45,18 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     List<ToSend> sendList;
     List<String> keyList;
+    private boolean isHost;
 
+    public void setHost(boolean host) {
+        this.isHost = host;
+    }
     DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnPull = (Button) findViewById(R.id.button2);
+        btnPull = (Button) findViewById(R.id.guestBtn);
         listView = findViewById(R.id.list_view);
 
         AuthenticationRequest.Builder builder =
@@ -71,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
         // string taken from text entry in app
         string = (EditText) findViewById(R.id.sendString);
         // our button
-        send = (Button) findViewById(R.id.button);
+        send = (Button) findViewById(R.id.hostBtn);
+
+        HostVsGuestDialogFragment HvG = new HostVsGuestDialogFragment();
 
         // to call our addString button on click
         send.setOnClickListener(new View.OnClickListener() {
@@ -227,4 +232,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-

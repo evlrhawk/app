@@ -8,6 +8,8 @@
         android:id="@+id/track"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/track" />
+        android:text="@string/track"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
 
 </LinearLayout>
