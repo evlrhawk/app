@@ -102,7 +102,7 @@ public class PartyService extends Service implements SpotifyPlayer.NotificationC
                 @Override
                 public void failure(RetrofitError error) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        Log.d("SpotifyMetadata", "Failed, reverting to 'Party Queue'");
+                        Log.d("SpotifyMetadata", "Failed, reverting to 'Digital JukeBox'");
                         registerService("Party Queue", 8000);
                     }
                 }
