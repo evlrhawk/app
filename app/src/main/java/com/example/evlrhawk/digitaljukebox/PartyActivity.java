@@ -48,7 +48,7 @@ public abstract class PartyActivity extends AppCompatActivity {
 
     protected String getMyHostname() {
         if(hostname != null) return hostname;
-        @SuppressLint("WifiManagerLeak") WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
 
         int ipAddress = wifiManager.getConnectionInfo().getIpAddress();
         hostname = String.format("%d.%d.%d.%d", (ipAddress & 0xff), (ipAddress >> 8 & 0xff),
@@ -57,7 +57,7 @@ public abstract class PartyActivity extends AppCompatActivity {
     }
 
     private boolean checkWifi() {
-        @SuppressLint("WifiManagerLeak") WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         if (!wifiManager.isWifiEnabled()) return false; // Wi-Fi adapter is OFF
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         return !(wifiInfo == null || wifiInfo.getNetworkId() == -1);
