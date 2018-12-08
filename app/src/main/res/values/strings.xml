@@ -18,6 +18,7 @@
     <string name="close">Close</string>
     <string name="skip">Skip Song</string>
     <string name="pause">Pause</string>
+    <string name="play">Play</string>
     <string name="media_route_menu_title">Cast</string>
     <string name="share_link">Share Link</string>
     <string name="stop_hosting">Stop Hosting</string>
