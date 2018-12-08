@@ -60,7 +60,7 @@ public class PartyService extends Service implements SpotifyPlayer.NotificationC
     public void onCreate() {
         username = "Host";
         Log.d(TAG, "Party Service Created");
-        CLIENT_ID = this.getString(R.string.CLIENT_ID);
+        CLIENT_ID = "27ead52d8b6d426a85b5a01cd63b388c";
         mManager = new SongRequestManager();
         mServer = new AndroidWebServer(8000, getResources(), mManager);
         initialized = false;
@@ -188,7 +188,7 @@ public class PartyService extends Service implements SpotifyPlayer.NotificationC
         mBuilder.setShowWhen(false);
         mBuilder.setColor(Color.argb(255, 30, 215, 96));
 
-        if(paused) mBuilder.addAction(R.drawable.ic_play_dark, "Resume Playing", ppPendingIntent);
+        if(paused) mBuilder.addAction(R.drawable.ic_media_play_dark, "Resume Playing", ppPendingIntent);
         else if(r != null) mBuilder.addAction(R.drawable.cast_ic_notification_skip_next, "Skip This Song", skipPendingIntent);
         Notification note = mBuilder.build();
         note.flags|=Notification.FLAG_NO_CLEAR;

@@ -27,7 +27,7 @@ public class HostActivity extends PartyActivity {
     private PartyService service;
     private boolean mBound;
 
-    private static final String REDIRECT_URI = "party-queue-app://callback";
+    private static final String REDIRECT_URI = "com.example.evlrhawk.digitaljukebox://callback";
 
     private ShareActionProvider mShareActionProvider;
 
@@ -94,7 +94,7 @@ public class HostActivity extends PartyActivity {
 
         if(PartyService.hasAuth()) return;
 
-        String CLIENT_ID = this.getString(R.string.CLIENT_ID);
+        String CLIENT_ID = "27ead52d8b6d426a85b5a01cd63b388c";
 
         AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID,
                 AuthenticationResponse.Type.TOKEN,
