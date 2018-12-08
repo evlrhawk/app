@@ -73,7 +73,6 @@
         <TextView
             android:id="@+id/nowArtist"
             android:ellipsize="marquee"
-            android:maxLines="1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/nowTitle"
@@ -81,7 +80,8 @@
             android:textSize="12dip"
             android:layout_marginTop="6dip"
             android:layout_toRightOf="@+id/nowThumbnail"
-            android:text="artist" />
+            android:text="artist"
+            android:singleLine="true" />
 
         <!-- Rightend Duration -->
         <TextView
@@ -101,7 +101,6 @@
         <TextView
             android:id="@+id/nowTitle"
             android:ellipsize="marquee"
-            android:maxLines="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Song Name"
@@ -111,13 +110,13 @@
             android:textStyle="bold"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/nowThumbnail"
-            android:layout_toEndOf="@+id/nowThumbnail" />
+            android:layout_toEndOf="@+id/nowThumbnail"
+            android:singleLine="true" />
 
 
         <TextView
             android:id="@+id/nowAddedBy"
             android:ellipsize="marquee"
-            android:maxLines="1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="#CCC"
@@ -126,7 +125,8 @@
             android:layout_marginTop="6dip"
             android:layout_below="@+id/nowArtist"
             android:layout_toRightOf="@+id/nowThumbnail"
-            android:layout_toEndOf="@+id/nowThumbnail" />
+            android:layout_toEndOf="@+id/nowThumbnail"
+            android:singleLine="true" />
 
         <!-- Rightend Arrow -->
     </RelativeLayout>
