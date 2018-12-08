@@ -57,7 +57,7 @@ public class TrackAdapter extends ArrayAdapter<SongRequest> {
 
         // Download album art
         String url = track.album.images.get(1).url;
-        Picasso.with(getContext()).load(url).placeholder(R.drawable.solid_bg).into(art);
+        Picasso.get();
 
         // Return the completed view to render on screen
         return convertView;
