@@ -22,6 +22,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.lang.annotation.Target;
 import java.util.ArrayList;
 
@@ -143,7 +145,7 @@ public abstract class PartyActivity extends AppCompatActivity {
         addedBy.setText(getString(R.string.addedBy, r.addedBy));
         cd.cancel();
         cd = new CountDown(time).start();
-        Picasso.with(this).load(track.album.images.get(0).url).into(target);
+        Picasso.get();
     }
 
     protected void updateAesthetics(Bitmap result) {
