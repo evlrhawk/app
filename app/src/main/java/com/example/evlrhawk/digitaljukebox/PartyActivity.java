@@ -2,6 +2,7 @@ package com.example.evlrhawk.digitaljukebox;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -47,7 +48,7 @@ public abstract class PartyActivity extends AppCompatActivity {
 
     protected String getMyHostname() {
         if(hostname != null) return hostname;
-        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+        @SuppressLint("WifiManagerLeak") WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
 
         int ipAddress = wifiManager.getConnectionInfo().getIpAddress();
         hostname = String.format("%d.%d.%d.%d", (ipAddress & 0xff), (ipAddress >> 8 & 0xff),
@@ -56,7 +57,7 @@ public abstract class PartyActivity extends AppCompatActivity {
     }
 
     private boolean checkWifi() {
-        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+        @SuppressLint("WifiManagerLeak") WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         if (!wifiManager.isWifiEnabled()) return false; // Wi-Fi adapter is OFF
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         return !(wifiInfo == null || wifiInfo.getNetworkId() == -1);
