@@ -3,6 +3,11 @@ package com.example.evlrhawk.digitaljukebox;
 import android.app.Application;
 import android.text.TextUtils;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 public class PartyApp extends Application {
     /**
      * Log or request TAG
@@ -64,11 +69,10 @@ public class PartyApp extends Application {
     /**
      * Adds the specified request to the global queue, if tag is specified
      * then it is used else Default TAG is used.
-     *
-     * @param req Volley Request
+     *  @param req Volley Request
      * @param tag Activity Tag
      */
-    public <T> void addToRequestQueue(Request<T> req, String tag) {
+    public <T> void addToRequestQueue(StringRequest req, String tag) {
         // set the default tag if tag is empty
         req.setTag(TextUtils.isEmpty(tag) ? TAG : tag);
 
@@ -82,7 +86,7 @@ public class PartyApp extends Application {
      *
      * @param req Volley Request
      */
-    public <T> void addToRequestQueue(Request<T> req) {
+    public <T> void addToRequestQueue(StringRequest req) {
         // set the default tag if tag is empty
         req.setTag(TAG);
 
