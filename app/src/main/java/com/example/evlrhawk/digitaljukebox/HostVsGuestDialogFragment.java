@@ -8,7 +8,7 @@ import android.support.v4.app.DialogFragment;
 
 public class HostVsGuestDialogFragment extends DialogFragment {
 
-    final String dialog_Host_Vs_Guest = "Do you want to be a host a guest?";
+    final String dialog_Host_Vs_Guest = "Do you want to be a host? A guest?";
     final String Host = "Host";
     final String Guest = "Guest";
 
@@ -27,6 +27,7 @@ public class HostVsGuestDialogFragment extends DialogFragment {
                 ((MainActivity) getActivity()).setHost(false);
             }
         });
+
         // Create the AlertDialog object and return it
         return builder.create();
     }

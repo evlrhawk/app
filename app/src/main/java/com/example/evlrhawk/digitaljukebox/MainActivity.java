@@ -180,8 +180,11 @@ public class MainActivity extends AppCompatActivity {
     private void connected() {
         // Play a playlist
 //        mSpotifyAppRemote.getPlayerApi().play("spotify:user:spotify:playlist:37i9dQZF1DX2sUQwD7tbmL");
-        mSpotifyAppRemote.getPlayerApi().play("spotify:user:sofigomezc:playlist:1EoaGONaSh0XVkuljYXvdq");
+//        mSpotifyAppRemote.getPlayerApi().play("spotify:user:sofigomezc:playlist:1EoaGONaSh0XVkuljYXvdq");
         // Subscribe to PlayerState
+        String songReq = string.getText().toString();
+
+
         mSpotifyAppRemote.getPlayerApi()
                 .subscribeToPlayerState()
                 .setEventCallback(new Subscription.EventCallback<PlayerState>() {
