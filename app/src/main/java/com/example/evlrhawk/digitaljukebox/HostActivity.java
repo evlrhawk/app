@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
 import com.spotify.sdk.android.authentication.AuthenticationResponse;
+import com.squareup.otto.Subscribe;
 
 public class HostActivity extends PartyActivity {
     public static final String TAG = "HostActivity";

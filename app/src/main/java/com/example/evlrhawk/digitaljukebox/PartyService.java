@@ -2,6 +2,7 @@ package com.example.evlrhawk.digitaljukebox;
 
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.app.Service;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Binder;
@@ -12,6 +13,7 @@ import android.util.Log;
 
 import com.spotify.protocol.client.Subscription;
 import com.spotify.sdk.android.player.Config;
+import com.spotify.sdk.android.player.ConnectionStateCallback;
 import com.spotify.sdk.android.player.Error;
 import com.spotify.sdk.android.player.PlayerEvent;
 import com.spotify.sdk.android.player.Spotify;
@@ -30,7 +32,7 @@ import retrofit.client.Response;
 import rxbonjour.RxBonjour;
 import rxbonjour.broadcast.BonjourBroadcast;
 
-public class PartyService {
+public class PartyService extends Service implements SpotifyPlayer.NotificationCallback, ConnectionStateCallback {
 
     public final String TAG = "PartyService";
     public final static int NOTEID = 5760;
@@ -70,7 +72,7 @@ public class PartyService {
                 .port(port)
                 .build();
 
-        nsd = broadcast.start(this).subscribe();
+        nsd = (Subscription) broadcast.start(this).subscribe();
     }
 
     @Override
