@@ -2,6 +2,7 @@ package com.example.evlrhawk.digitaljukebox;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -145,7 +146,7 @@ public abstract class PartyActivity extends AppCompatActivity {
         addedBy.setText(getString(R.string.addedBy, r.addedBy));
         cd.cancel();
         cd = new CountDown(time).start();
-        Picasso.with(this).load(track.album.images.get(0).url).into(target);
+        Picasso.get();
     }
 
     protected void updateAesthetics(Bitmap result) {
