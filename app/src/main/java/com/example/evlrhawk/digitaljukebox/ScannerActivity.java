@@ -7,6 +7,8 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.spotify.protocol.client.Subscription;
+
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
