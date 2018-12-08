@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.MenuItem;
@@ -25,6 +26,8 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.lang.annotation.Annotation;
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 import java.util.ArrayList;
 
@@ -90,6 +93,16 @@ public abstract class PartyActivity extends AppCompatActivity {
         cd = new CountDown(0);
 
         target = new Target() {
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return null;
+            }
+
+            @Override
+            public ElementType[] value() {
+                return new ElementType[0];
+            }
+
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                 updateAesthetics(bitmap);
