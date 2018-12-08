@@ -11,7 +11,6 @@ import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import com.spotify.protocol.client.Subscription;
 import com.spotify.sdk.android.player.Config;
 import com.spotify.sdk.android.player.ConnectionStateCallback;
 import com.spotify.sdk.android.player.Error;
@@ -29,6 +28,7 @@ import kaaes.spotify.webapi.android.models.UserPrivate;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import rx.Subscription;
 import rxbonjour.RxBonjour;
 import rxbonjour.broadcast.BonjourBroadcast;
 
