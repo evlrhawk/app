@@ -13,6 +13,8 @@ import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.support.constraint.solver.widgets.ResolutionNode.REMOVED;
+
 public class ScannerActivity extends AppCompatActivity {
     private final String TAG = "ScannerActivity";
 
