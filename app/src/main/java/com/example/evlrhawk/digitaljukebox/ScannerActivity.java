@@ -7,13 +7,12 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.spotify.protocol.client.Subscription;
-
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.support.constraint.solver.widgets.ResolutionNode.REMOVED;
+import rxbonjour.RxBonjour;
+import rxbonjour.model.BonjourService;
 
 public class ScannerActivity extends AppCompatActivity {
     private final String TAG = "ScannerActivity";
@@ -21,7 +20,7 @@ public class ScannerActivity extends AppCompatActivity {
     private List<InetAddress> hosts;
     private List<Integer> ports;
     private ArrayAdapter<String> arrayAdapter;
-    private Subscription sub;
+    private rx.Subscription sub;
     private String username;
 
     @Override
