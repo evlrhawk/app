@@ -95,7 +95,7 @@ public class HostActivity extends PartyActivity {
 
         if(PartyService.hasAuth()) return;
 
-        String CLIENT_ID = "27ead52d8b6d426a85b5a01cd63b388c";
+//        String CLIENT_ID = "27ead52d8b6d426a85b5a01cd63b388c";
 
         AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID,
                 AuthenticationResponse.Type.TOKEN,

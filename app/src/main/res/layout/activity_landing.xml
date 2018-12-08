@@ -23,18 +23,6 @@
         android:layout_marginLeft="40dp" android:layout_marginRight="40dp"
         android:onClick="startJoin" />
 
-    <Button
-        android:background="@drawable/button"
-        android:text="Help"
-        android:textColor="#FFF"
-        android:layout_width="match_parent"
-        android:layout_height="60dip"
-        android:layout_below="@+id/buttonJoin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="40dp" android:layout_marginRight="40dp"
-        android:layout_marginTop="18dp"
-        android:onClick="startHelp"/>
 
     <Button
         android:background="@drawable/button"
