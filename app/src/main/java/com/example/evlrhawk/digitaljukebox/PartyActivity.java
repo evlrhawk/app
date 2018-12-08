@@ -145,7 +145,7 @@ public abstract class PartyActivity extends AppCompatActivity {
         addedBy.setText(getString(R.string.addedBy, r.addedBy));
         cd.cancel();
         cd = new CountDown(time).start();
-        Picasso.with(this).load(track.album.images.get(0).url).into(target);
+        Picasso.get();
     }
 
     protected void updateAesthetics(Bitmap result) {
