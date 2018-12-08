@@ -25,6 +25,23 @@
         <activity
             android:name="com.spotify.sdk.android.authentication.LoginActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity android:name=".SearchActivity" android:label="Search Results"/>
+        <activity android:name=".HostActivity" android:launchMode="singleTask" />
+        <activity android:name=".ClientActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="com.example.evlrhawk.digitaljukebox" />
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity android:name=".ScannerActivity" />
     </application>
 
 </manifest>
