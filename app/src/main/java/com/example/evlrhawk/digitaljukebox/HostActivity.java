@@ -22,6 +22,7 @@ import com.squareup.otto.Subscribe;
 
 public class HostActivity extends PartyActivity {
     public static final String TAG = "HostActivity";
+    private static final String CLIENT_ID = "27ead52d8b6d426a85b5a01cd63b388c";
 
     private ServiceConnection mServiceConnection;
     private PartyService service;

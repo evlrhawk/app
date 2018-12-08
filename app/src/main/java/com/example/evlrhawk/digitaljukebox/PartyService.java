@@ -47,8 +47,8 @@ public class PartyService extends Service implements SpotifyPlayer.NotificationC
     private AndroidWebServer mServer;
     private Subscription nsd;
 
-    public static final String ACTION_NEXT = "com.shaneschulte.partyqueue.action_skip";
-    public static final String ACTION_PP = "com.shaneschulte.partyqueue.action_pp";
+    public static final String ACTION_NEXT = "com.example.evlrhawk.digitaljukebox.action_skip";
+    public static final String ACTION_PP = "com.example.evlrhawk.digitaljukebox.action_pp";
     private static boolean initialized = false;
     private String username;
 

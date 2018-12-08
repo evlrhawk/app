@@ -94,7 +94,7 @@ public abstract class PartyActivity extends AppCompatActivity {
 
             @Override
             public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-
+                Log.e("Picasso","Download of a bitmap failed");
             }
 
             @Override
