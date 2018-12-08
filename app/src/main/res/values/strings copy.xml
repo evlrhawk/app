@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Party Queue</string>
+    <string name="addedBy">Added By: %1$s</string>
+    <string name="media_route_menu_title">Cast</string>
+    <string name="stop_hosting">Stop Hosting</string>
+    <string name="search">Search...</string>
+    <string name="share_link">Share Link</string>
+    <string name="close">Close</string>
+    <string name="skip">Skip Song</string>
+    <string name="pause">Pause</string>
+    <string name="play">Play</string>
+    <string name="reload">Load Prev. Queue</string>
+    <string name="cast_tagline">Request music!\nGo to:\n%1$s\n\nOr scan this:</string>
+</resources>
