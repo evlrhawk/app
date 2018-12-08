@@ -7,6 +7,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.otto.Bus;
 
 public class PartyApp extends Application {
     /**
