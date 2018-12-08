@@ -45,8 +45,5 @@ public class LandingActivity extends AppCompatActivity {
         builder.show();
     }
 
-    public void startHelp(View view) {
-        startActivity(new Intent(this, HelpActivity.class));
-    }
 
 }
