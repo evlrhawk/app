@@ -45,13 +45,11 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     List<ToSend> sendList;
     List<String> keyList;
+    private boolean isHost;
 
-
-    private static Boolean isHost;
-    private Object HostVsClassDialogFragment;
-
-    public void setHost(boolean host) { this.isHost = host; }
-
+    public void setHost(boolean host) {
+        this.isHost = host;
+    }
     DatabaseReference databaseReference;
 
     @Override
