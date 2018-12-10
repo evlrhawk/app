@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.evlrhawk.digitaljukebox">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -7,25 +8,30 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:allowBackup="false"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:icon="@drawable/ic_partyqueue"
+        android:name="com.example.evlrhawk.digitaljukebox.PartyApp"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <service
+            android:name=".PartyService"
+            android:label="Hosting Party" >
+        </service>
         <activity
             android:name=".LandingActivity"
-            android:screenOrientation="portrait">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Needed for LoginActivity to work -->
         <activity
             android:name="com.spotify.sdk.android.authentication.LoginActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <activity android:name=".SearchActivity" android:label="Search Results"/>
         <activity android:name=".HostActivity" android:launchMode="singleTask" />
         <activity android:name=".ClientActivity">
@@ -36,12 +42,16 @@
 
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value="com.example.evlrhawk.digitaljukebox" />
+                android:value="com.example.evlrhawk.digitaljukebox.SearchActivity" />
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".ScannerActivity" />
+        <activity android:name=".ScannerActivity" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

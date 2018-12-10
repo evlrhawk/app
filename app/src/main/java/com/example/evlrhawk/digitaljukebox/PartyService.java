@@ -9,6 +9,7 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat.Builder;
 import android.util.Log;
 
 import com.spotify.sdk.android.player.Config;
@@ -89,12 +90,10 @@ public class PartyService extends Service implements SpotifyPlayer.NotificationC
                 public void success(UserPrivate userPrivate, Response response) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                         Log.d("SpotifyMetadata", "Success, name: "+userPrivate.display_name);
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                            username = userPrivate.display_name;
-                            mManager.postEvent(new NameChangeEvent(userPrivate.display_name));
-                            registerService(userPrivate.display_name, 8000);
-                            mManager.setCountry(userPrivate.country);
-                        }
+                        username = userPrivate.display_name;
+                        mManager.postEvent(new NameChangeEvent(userPrivate.display_name));
+                        registerService(userPrivate.display_name, 8000);
+                        mManager.setCountry(userPrivate.country);
                     }
                 }
 
@@ -103,7 +102,7 @@ public class PartyService extends Service implements SpotifyPlayer.NotificationC
                 public void failure(RetrofitError error) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                         Log.d("SpotifyMetadata", "Failed, reverting to 'Digital JukeBox'");
-                        registerService("Party Queue", 8000);
+                        registerService("Digital JukeBox", 8000);
                     }
                 }
             });
@@ -178,8 +177,9 @@ public class PartyService extends Service implements SpotifyPlayer.NotificationC
             title = "Nothing Playing";
             artist = "Add songs to the queue to get started!";
         }
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
+        //noinspection deprecation
+        Builder mBuilder =
+                new Builder(this)
                         .setSmallIcon(R.drawable.ic_android_notification)
                         .setContentTitle(title)
                         .setContentText(artist)

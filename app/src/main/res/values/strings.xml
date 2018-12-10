@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DigitalJukeBox</string>
+    <string name="app_name">Digital JukeBox</string>
     <string name="addedBy">Added By: %1$s</string>
     <string name="host">Host</string>
     <string name="join">Join</string>
